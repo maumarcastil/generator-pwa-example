@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@remix-run/router':
+        specifier: ^1.18.0
+        version: 1.18.0
       react:
         specifier: ^18.3.1
         version: 18.3.1
