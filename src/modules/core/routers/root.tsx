@@ -3,6 +3,8 @@ import { createBrowserRouter } from 'react-router-dom'
 
 import AuthRoute from '../guards/authGuard'
 import { PrivateRoute } from '../guards/privateGuard'
+import { DashboardLayout } from '../layout/dashboard'
+import { SidebarProvider } from '../context/sidebarContext'
 
 export const router = createBrowserRouter([
   {
@@ -29,7 +31,15 @@ export const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
-    element: <PrivateRoute />,
+    element: (
+      <>
+        <PrivateRoute>
+          <SidebarProvider>
+            <DashboardLayout />
+          </SidebarProvider>
+        </PrivateRoute>
+      </>
+    ),
     children: [
       {
         path: '',
@@ -46,6 +56,22 @@ export const router = createBrowserRouter([
       {
         path: 'wallet',
         element: <div>Wallet</div>,
+      },
+      {
+        path: 'materials',
+        element: <div>Materials</div>,
+      },
+      {
+        path: 'certificates',
+        element: <div>Certificates</div>,
+      },
+      {
+        path: 'settings',
+        element: <div>Settings</div>,
+      },
+      {
+        path: 'help',
+        element: <div>Help</div>,
       },
     ],
   },
