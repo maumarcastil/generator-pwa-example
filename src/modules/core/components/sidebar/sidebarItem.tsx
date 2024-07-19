@@ -16,11 +16,17 @@ interface SidebarItemProps {
 export const SidebarItem = (props: SidebarItemProps) => {
   const { text, icon, alert, active, path } = props
 
-  const { expanded } = React.useContext(SidebarContext)
+  const { expanded, setExpanded } = React.useContext(SidebarContext)
+
+  const handleToggle = () => {
+    if (window.innerWidth < 768) {
+      setExpanded(false)
+    }
+  }
 
   return (
     <>
-      <Link to={path}>
+      <Link to={path} onClick={handleToggle}>
         <li
           className={cn(
             'relative flex items-center py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors group',
