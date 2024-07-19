@@ -18,11 +18,13 @@ export const SIDEBAR_ITEMS: SidebarItem[] = [
     icon: <FiHome size={20} />,
   },
   {
+    alert: true,
     path: 'collections',
     text: 'Collections',
     icon: <FiTruck size={20} />,
   },
   {
+    alert: true,
     path: 'marketplace',
     text: 'Marketplace',
     icon: <FiShoppingCart size={20} />,
