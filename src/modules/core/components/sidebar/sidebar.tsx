@@ -19,7 +19,15 @@ export const Sidebar = ({ children }: SidebarProps) => {
 
   return (
     <>
-      <aside className="h-screen">
+      <aside
+        className={cn(
+          'h-full md:h-screen transition-all max-md:absolute duration-700',
+          {
+            'max-md:left-0 max-md:z-20': expanded,
+            'max-md:-left-full': !expanded,
+          },
+        )}
+      >
         <nav className="h-full flex flex-col bg-white border-r shadow-sm">
           <div className="p-3 pb-2 flex justify-between items-center">
             <img
@@ -47,7 +55,9 @@ export const Sidebar = ({ children }: SidebarProps) => {
 
           {/* Sidebar provider */}
 
-          <ul className="flex-1 px-3">{children}</ul>
+          <ul className="flex-1 px-3 overflow-auto overflow-x-hidden">
+            {children}
+          </ul>
 
           <div className="border-t flex p-3 items-center">
             {/* avatar */}
@@ -79,6 +89,16 @@ export const Sidebar = ({ children }: SidebarProps) => {
           </div>
         </nav>
       </aside>
+
+      <div
+        onClick={handleToggle}
+        className={cn(
+          'absolute z-10 w-full h-full bg-black bg-opacity-50 transition-all duration-150 left-0 md:hidden',
+          {
+            'opacity-0 -left-full': !expanded,
+          },
+        )}
+      />
     </>
   )
 }
