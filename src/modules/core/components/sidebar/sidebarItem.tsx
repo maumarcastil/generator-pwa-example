@@ -4,14 +4,9 @@ import { Link } from 'react-router-dom'
 import { SidebarContext } from '../../context/sidebarContext'
 
 import { cn } from '../../utils/cn'
+import { SidebarItem as SidebarItemModel } from '../../models/sidebarItems'
 
-interface SidebarItemProps {
-  text: string
-  icon: React.ReactNode
-  alert?: boolean
-  active?: boolean
-  path: string
-}
+interface SidebarItemProps extends SidebarItemModel {}
 
 export const SidebarItem = (props: SidebarItemProps) => {
   const { text, icon, alert, active, path } = props
