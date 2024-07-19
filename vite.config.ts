@@ -13,6 +13,7 @@ export default defineConfig({
         short_name: 'Arli Generator',
         description: 'Arli generator description',
         theme_color: '#ffffff',
+        scope: 'https://generator-pwa-example.vercel.app/',
         icons: [
           {
             src: '/pwa-192x192.png',
