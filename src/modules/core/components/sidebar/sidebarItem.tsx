@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { SidebarContext } from './sidebarContext'
+import { SidebarContext } from '../../context/sidebarContext'
 
 import { cn } from '../../utils/cn'
 
