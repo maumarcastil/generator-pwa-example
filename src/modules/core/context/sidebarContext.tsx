@@ -3,6 +3,7 @@ import React from 'react'
 interface SidebarContextType {
   expanded?: boolean
   setExpanded: React.Dispatch<React.SetStateAction<boolean>>
+  handleToggle: () => void
 }
 
 interface SidebarProviderProps {
@@ -12,12 +13,17 @@ interface SidebarProviderProps {
 export const SidebarContext = React.createContext<SidebarContextType>({
   expanded: true,
   setExpanded: () => true,
+  handleToggle: () => {},
 })
 
 export const SidebarProvider = ({ children }: SidebarProviderProps) => {
-  const [expanded, setExpanded] = React.useState(true)
+  const [expanded, setExpanded] = React.useState(false)
 
   /* recover state */
+
+  const handleToggle = () => {
+    setExpanded((prev) => !prev)
+  }
 
   return (
     <>
@@ -25,6 +31,7 @@ export const SidebarProvider = ({ children }: SidebarProviderProps) => {
         value={{
           expanded,
           setExpanded,
+          handleToggle,
         }}
       >
         {children}
