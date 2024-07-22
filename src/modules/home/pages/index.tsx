@@ -1,8 +1,10 @@
+import { CameraExample } from '../../core/components/camera/CameraExample'
+
 const HomePage = () => {
   return (
     <>
       <div>
-        <h3>Home</h3>
+        <CameraExample />
       </div>
     </>
   )
