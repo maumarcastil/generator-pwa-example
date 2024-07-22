@@ -3,7 +3,11 @@ import { createBrowserRouter } from 'react-router-dom'
 
 import AuthRoute from '../guards/authGuard'
 import { PrivateRoute } from '../guards/privateGuard'
+
+import HomePage from '../../home/pages'
+
 import { DashboardLayout } from '../layout/dashboard'
+
 import { SidebarProvider } from '../context/sidebarContext'
 
 export const router = createBrowserRouter([
@@ -43,7 +47,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <div>Home</div>,
+        element: <HomePage />,
       },
       {
         path: 'collections',
