@@ -32,10 +32,10 @@ export const CameraExample = () => {
 
         <CardFooter className="pt-0">
           <Button
-            variant="gradient"
+            variant="text"
             onClick={takePhoto}
             className={cn(
-              'w-full sm:w-auto justify-center bg-[--bgSoft] rounded-2xl text-inherit bg-gradient-to-tr from-[--bgSoft] to-[--bgSoft]',
+              'w-full sm:w-auto justify-center rounded-2xl outline-none hover:bg-indigo-50 text-gray-600',
             )}
           >
             Take a picture
