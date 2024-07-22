@@ -1,4 +1,6 @@
 import React from 'react'
+import { App as CapacitorApp } from '@capacitor/app'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { FiChevronLeft, FiChevronRight, FiMoreVertical } from 'react-icons/fi'
 
 import { SidebarContext } from '../../context/sidebarContext'
@@ -12,6 +14,28 @@ interface SidebarProps {
 
 export const Sidebar = ({ children }: SidebarProps) => {
   const { expanded, setExpanded } = React.useContext(SidebarContext)
+  const navigate = useNavigate()
+  const { pathname } = useLocation()
+
+  React.useEffect(() => {
+    const handleBackButton = () => {
+      if (expanded) {
+        setExpanded(false)
+        return
+      } else if (pathname === '/dashboard' || pathname === '/login') {
+        CapacitorApp.exitApp()
+        return
+      } else {
+        navigate(-1)
+        return
+      }
+    }
+    CapacitorApp.addListener('backButton', handleBackButton)
+
+    return () => {
+      CapacitorApp.removeAllListeners()
+    }
+  }, [expanded])
 
   const handleToggle = () => {
     setExpanded((prev) => !prev)
@@ -21,10 +45,10 @@ export const Sidebar = ({ children }: SidebarProps) => {
     <>
       <aside
         className={cn(
-          'h-full md:h-screen transition-all max-md:absolute duration-700',
+          'absolute z-20 md:static h-full md:h-screen transition-all duration-700',
           {
-            'max-md:left-0 max-md:z-20': expanded,
-            'max-md:-left-full': !expanded,
+            'left-0': expanded,
+            '-left-full': !expanded,
           },
         )}
       >
@@ -93,9 +117,9 @@ export const Sidebar = ({ children }: SidebarProps) => {
       <div
         onClick={handleToggle}
         className={cn(
-          'absolute z-10 w-full h-full bg-black bg-opacity-50 transition-all duration-150 left-0 md:hidden',
+          'absolute z-10 w-full h-full bg-black bg-opacity-50 transition-all left-0 md:hidden',
           {
-            'opacity-0 -left-full': !expanded,
+            'opacity-0 pointer-events-none': !expanded,
           },
         )}
       />
