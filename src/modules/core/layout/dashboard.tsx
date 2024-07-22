@@ -1,5 +1,4 @@
-import React from 'react'
-import { Fragment } from 'react/jsx-runtime'
+import React, { Fragment } from 'react'
 import { FiMenu, FiX } from 'react-icons/fi'
 import { Outlet, useLocation } from 'react-router-dom'
 
