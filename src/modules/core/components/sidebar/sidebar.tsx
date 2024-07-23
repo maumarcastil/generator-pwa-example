@@ -79,9 +79,7 @@ export const Sidebar = ({ children }: SidebarProps) => {
 
           {/* Sidebar provider */}
 
-          <ul className="flex-1 px-3 overflow-auto overflow-x-hidden">
-            {children}
-          </ul>
+          <ul className="flex-1 px-3">{children}</ul>
 
           <div className="border-t flex p-3 items-center">
             {/* avatar */}
