@@ -20,6 +20,12 @@ importers:
       '@capacitor/core':
         specifier: ^6.1.1
         version: 6.1.1
+      '@capacitor/device':
+        specifier: ^6.0.0
+        version: 6.0.0(@capacitor/core@6.1.1)
+      '@capacitor/local-notifications':
+        specifier: ^6.0.0
+        version: 6.0.0(@capacitor/core@6.1.1)
       '@material-tailwind/react':
         specifier: ^2.1.9
         version: 2.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -717,6 +723,16 @@ packages:
 
   '@capacitor/core@6.1.1':
     resolution: {integrity: sha512-b1s4WDMy3Y1/owTG2/XNGCI6G5SDpF2NT1JMAgcShue13fiAuHA+Ans7Wfei6McvR0KdopAE6tMHmDAfL5PM8Q==}
+
+  '@capacitor/device@6.0.0':
+    resolution: {integrity: sha512-3cV4XcH9pTWcstecyr8rNBQvFCsxYugJdPetk898airCbV1bqZSGF2YLSoPQj4BiDITSlNgwABNwNYMCNzs/gw==}
+    peerDependencies:
+      '@capacitor/core': ^6.0.0
+
+  '@capacitor/local-notifications@6.0.0':
+    resolution: {integrity: sha512-a/g/ZlPgaBXue374oNzGvvNZWNpnclfcLzfE/P/PjhHxdHsM7J3OK0IfmjrEsRiON4AEIga+dkHi5yBjNAHCFw==}
+    peerDependencies:
+      '@capacitor/core': ^6.0.0
 
   '@emotion/is-prop-valid@0.8.8':
     resolution: {integrity: sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==}
@@ -3889,6 +3905,14 @@ snapshots:
   '@capacitor/core@6.1.1':
     dependencies:
       tslib: 2.6.3
+
+  '@capacitor/device@6.0.0(@capacitor/core@6.1.1)':
+    dependencies:
+      '@capacitor/core': 6.1.1
+
+  '@capacitor/local-notifications@6.0.0(@capacitor/core@6.1.1)':
+    dependencies:
+      '@capacitor/core': 6.1.1
 
   '@emotion/is-prop-valid@0.8.8':
     dependencies:
